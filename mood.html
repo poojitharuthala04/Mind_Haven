@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Tracker</title>
+    <script src="js/script.js" defer></script>
+</head>
+<body onload="loadMoodHistory()">
+    <h1>Mood Tracker</h1>
+    <p>How are you feeling today?</p>
+    <label><input type="radio" name="mood" value="😊"> Happy</label><br>
+    <label><input type="radio" name="mood" value="😐"> Okay</label><br>
+    <label><input type="radio" name="mood" value="😞"> Sad</label><br>
+    <label><input type="radio" name="mood" value="😡"> Angry</label><br>
+    <label><input type="radio" name="mood" value="🥺"> Anxious</label><br><br>
+    <button onclick="saveMood()">Save Mood</button>
+    <div id="moodHistory"></div>
+</body>
+</html>

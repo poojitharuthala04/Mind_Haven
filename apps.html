@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apps</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <script>
+function recommendApps() {
+  const selected = Array.from(document.querySelectorAll('.quiz-options input:checked'))
+                        .map(cb => cb.value);
+
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+
+  if (selected.length === 0) {
+    resultsDiv.innerHTML = '<p>Please select at least one option above.</p>';
+    return;
+  }
+
+  const recommendations = {
+    anxiety: ['Calm', 'Headspace', 'Insight Timer'],
+    depression: ['BetterHelp', '7 Cups', 'Daylio'],
+    sleep: ['SleepTown', 'Calm', 'Insight Timer'],
+    loneliness: ['7 Cups', 'YourDOST'],
+    productivity: ['Daylio', 'Reflectly']
+  };
+
+  let recommendedApps = new Set();
+  selected.forEach(condition => {
+    (recommendations[condition] || []).forEach(app => recommendedApps.add(app));
+  });
+
+  if (recommendedApps.size === 0) {
+    resultsDiv.innerHTML = '<p>No matching apps found.</p>';
+  } else {
+    resultsDiv.innerHTML = '<h3>Recommended Apps:</h3><ul>' +
+      Array.from(recommendedApps).map(app => `<li>${app}</li>`).join('') +
+      '</ul>';
+  }
+}
+    </script>
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header, nav {
+    background: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* App Grid Styling */
+.app-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Always two columns */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual App Card */
+.app {
+  border: 1px solid #ccc;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.app a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: #3ddc84;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.app a:hover {
+  background-color: #34c274;
+}
+
+/* Center all headings */
+h1, h2 {
+  text-align: center;
+}
+
+/* Quiz Section Styling */
+.quiz-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quiz-question {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.quiz-options label {
+    display: block;
+    margin: 8px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.quiz-options label:hover {
+    background-color: #e0f7e9;
+}
+header {
+  background-color: white;
+  color: #4CAF50;
+  padding: 1em 2em;
+  position: relative;
+  display: flex;
+  justify-content: center; /* center the heading */
+  align-items: center;
+  border-bottom: 2px solid #4CAF50;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+header .home-link {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #f0f8ff;
+  padding: 6px 12px;
+  border: 1px solid #4CAF50;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header .home-link:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+      </style>
+</head>
+<body>
+    <header>
+        <h1>Find the Right Mental Health App</h1>
+        <a href="index.html" class="home-link">Go to Home</a>
+      </header>
+    <div class="quiz-container">
+        <p>Select what you're struggling with:</p>
+        <div class="quiz-options">
+          <label><input type="checkbox" value="anxiety"> Anxiety</label>
+          <label><input type="checkbox" value="depression"> Depression</label>
+          <label><input type="checkbox" value="sleep"> Sleep Issues</label>
+          <label><input type="checkbox" value="loneliness"> Loneliness</label>
+          <label><input type="checkbox" value="productivity"> Productivity</label>
+        </div>
+        <br>
+        <button onclick="recommendApps()">Get Recommendations</button>
+      
+        <div id="results" style="margin-top: 20px;"></div>
+      </div>
+      
+
+    <h2>Get your apps here!👇</h2>
+    <div class="app-container">
+        <div class="app">
+            <div class="app-header">
+              <h3>Calm</h3>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWE5xjFwr2b8P5s_GbHXTyeU7T9A2kDpEoIw&s" alt="Calm Logo">
+            </div>
+            <p>Great for meditation, sleep, and anxiety relief. ⭐ 4.7/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.calm.android" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>BetterHelp</h3>
+              <img src="https://www.calmsage.com/wp-content/uploads/2020/05/betterHelp-300x293.png" alt="BetterHelp Logo">
+            </div>
+            <p>Online therapy from licensed professionals. ⭐ 4.5/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.betterhelp" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>Headspace</h3>
+              <img src="https://play-lh.googleusercontent.com/uAZcbs5DzG8xKGHt6bTPXtnvtc9zlwr-JbB53Um7cD8LKRTA8Ek1sO6EiUoHLpWNWw=w240-h480-rw" alt="Headspace Logo">
+            </div>
+            <p>Guided meditation for all levels. ⭐ 4.6/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.getsomeheadspace.android" target="_blank">Get on Play Store</a>
+          </div>
+          <div class="app">
+            <div class="app-header">
+              <h3>7 Cups</h3>
+              <img src="https://play-lh.googleusercontent.com/vtkK69J_JMkUcDweuZJfDLdapkmdqnnp5h2-PCv4u2iNY9oCEk-C3sSERBpf-RZ4-xI" alt="7 Cups Logo">
+            </div>
+            <p>Chat with trained listeners or therapists anonymously. ⭐ 4.0/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.sevencupsoftea.app" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>Daylio</h3>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkstzRYwjkufWQpGvU5kXSbBCyrcKlk4jMPw&s" alt="Daylio Logo">
+            </div>
+            <p>Self-care journal and mood tracker with goals. ⭐ 4.6/5</p>
+            <a href="https://play.google.com/store/apps/details?id=net.daylio" target="_blank">Get on Play Store</a>
+          </div>
+          <div class="app">
+            <div class="app-header">
+              <h3>SleepTown</h3>
+              <img src="https://play-lh.googleusercontent.com/Q4QKI-tnjqdukBszG4fG5DsCwFnaWM2YFA4QCbUUzkNH5sdmpnrUFYIcax2qZnYMLls" alt="SleepTown Logo">
+            </div>
+            <p>Build healthy sleep habits through a fun app. ⭐ 4.4/5</p>
+            <a href="https://play.google.com/store/search?q=sleeptown&c=apps" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>Happify</h3>
+              <img src="https://play-lh.googleusercontent.com/bfbLhvRgAMv9He3LPJ_CLxseZSwzU-RejqilZls4r63LGj2DCg9ZtUy8uL_HYtyw6sse" alt="Happify Logo">
+            </div>
+            <p>Science-based games and activities to boost happiness. ⭐ 4.1/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.happify.happifyinc" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>Insight Timer</h3>
+              <img src="https://play-lh.googleusercontent.com/5nhGeNbFEhYY63llcC_sgnXkgwnWRqQ6tshDg8ySTf-vHWK-DPGMqwGrnR9ca670eSYb" alt="Insight Timer Logo">
+            </div>
+            <p>Free meditation, music, and sleep support. ⭐ 4.8/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.spotlightsix.zentimerlite2" target="_blank">Get on Play Store</a>
+          </div>
+          <div class="app">
+            <div class="app-header">
+              <h3>My Possible Self</h3>
+              <img src="https://play-lh.googleusercontent.com/o9trIu4yGHdKMSnCNm9XLWucQBJNc_k1wtwskN-dldNzMI1YFZ97a50TvXPr4OR30L4" alt="My Possible Self Logo">
+            </div>
+            <p>Manage anxiety, stress, and depression with CBT-based tools. ⭐ 4.3/5</p>
+            <a href="https://play.google.com/store/search?q=mypossibleself&c=apps" target="_blank">Get on Play Store</a>
+          </div>
+          <div class="app">
+            <div class="app-header">
+              <h3>ReYou (iCALL)</h3>
+              <img src="https://play-lh.googleusercontent.com/GlXN_upYt3yYy-sFdWAw_UxVcTjGA9czxTBBy9BspC-t2alA0libnNYJKYXbwu3z5g" alt="ReYou iCALL Logo">
+            </div>
+            <p>Free self‑help tools + connection to TISS iCALL helpline. ⭐ ~4.4/5</p>
+            <a href="https://play.google.com/store/apps/details?id=org.codeb.IcallApp" target="_blank">Get on Play Store</a>
+          </div>
+          
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>YourDOST</h3>
+              <img src="https://play-lh.googleusercontent.com/zJdyKQufxOG9bYYV7_rs1qlPsCC1mArz-KEKWYjg3tVLUwNq_PnZwRdnTrjoFzOOPHR0=w240-h480-rw" alt="YourDOST Logo">
+            </div>
+            <p>Connect with expert mental wellness professionals. ⭐ 4.2/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.yourdost.app.prod" target="_blank">Get on Play Store</a>
+          </div>
+          
+          <div class="app">
+            <div class="app-header">
+              <h3>Reflectly</h3>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxlLIR2-t0IFqvbc8lm6bAxzqytZS76ZZnwQ&s" alt="Reflectly Logo">
+            </div>
+            <p>Personalized journal powered by AI. ⭐ 4.4/5</p>
+            <a href="https://play.google.com/store/apps/details?id=com.reflectlyApp" target="_blank">Get on Play Store</a>
+          </div>
+</div>
+</body>
+</html>

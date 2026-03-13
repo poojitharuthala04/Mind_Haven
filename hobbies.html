@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hobbies</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: white;
+      color: #4CAF50;
+      padding: 1em 2em;
+      border-bottom: 2px solid #4CAF50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .home-link {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #f0f8ff;
+      padding: 6px 12px;
+      border: 1px solid #4CAF50;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .home-link:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .hobby-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .hobby-card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .hobby-card:hover {
+      transform: scale(1.02);
+    }
+
+    .hobby-card h2 {
+      color: #388E3C;
+      margin-top: 0;
+      font-size: 1.2em;
+    }
+
+    .hobby-card h2::before {
+      margin-right: 10px;
+    }
+
+    .emoji {
+      font-size: 1.3em;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hobbies That Support Mental Well-being</h1>
+    <a href="index.html" class="home-link">Go to Home</a>
+  </header>
+
+  <div class="hobby-container">
+
+    <div class="hobby-card">
+      <h2><span class="emoji">📝</span>Journaling</h2>
+      <p>Writing down your thoughts and emotions helps process feelings, gain clarity, and relieve stress. It’s a safe space to reflect and grow emotionally.</p>
+    </div>
+
+    <div class="hobby-card">
+        <h2><span class="emoji">🎶</span>Listening to Music</h2>
+        <p>Music can lift your mood, reduce anxiety, and provide emotional release. It activates pleasure centers in the brain and is a simple way to feel grounded and calm.</p>
+      </div>
+      
+      <div class="hobby-card">
+        <h2><span class="emoji">✍️</span>Creative Writing</h2>
+        <p>Writing poetry, stories, or personal essays lets you express thoughts that are hard to speak. It's a therapeutic outlet for self-discovery and emotional processing.</p>
+      </div>
+      
+      <div class="hobby-card">
+        <h2><span class="emoji">🚶‍♀️</span>Walking in Nature</h2>
+        <p>Nature walks reduce cortisol, boost endorphins, and improve focus. Being outdoors also improves mood and provides a natural way to clear your mind.</p>
+      </div>
+      
+      <div class="hobby-card">
+        <h2><span class="emoji">🎭</span>Performing Arts</h2>
+        <p>Dancing, acting, or singing helps release emotions, improve confidence, and enhance social connection. These expressive arts are great mood boosters.</p>
+      </div>
+      
+      <div class="hobby-card">
+        <h2><span class="emoji">🧩</span>Puzzles & Brain Games</h2>
+        <p>Engaging your mind in puzzles or strategy games can improve focus, reduce anxiety, and provide a healthy distraction from negative thoughts.</p>
+      </div>
+      
+      <div class="hobby-card">
+        <h2><span class="emoji">📸</span>Photography</h2>
+        <p>Capturing beauty through a lens encourages mindfulness, creativity, and presence. It helps you see your surroundings and life from a new perspective.</p>
+      </div>
+      
+    <div class="hobby-card">
+      <h2><span class="emoji">🪴</span>Gardening</h2>
+      <p>Spending time with plants reduces cortisol levels, boosts mood, and offers a calming sensory experience. Gardening promotes a sense of achievement and purpose.</p>
+    </div>
+
+    <div class="hobby-card">
+      <h2><span class="emoji">🎨</span>Drawing / Painting</h2>
+      <p>Art therapy encourages mindfulness and allows emotional expression without words. It’s known to reduce anxiety and increase self-esteem.</p>
+    </div>
+
+    <div class="hobby-card">
+      <h2><span class="emoji">🧘‍♀️</span>Yoga & Meditation</h2>
+      <p>These practices balance the nervous system, lower anxiety, and improve focus. They build resilience and create inner peace through breathing and movement.</p>
+    </div>
+
+    <div class="hobby-card">
+      <h2><span class="emoji">📚</span>Reading</h2>
+      <p>Reading reduces stress levels by up to 68%, improves empathy, and helps escape negative thought loops. It's a mental workout that also soothes the mind.</p>
+    </div>
+
+    <div class="hobby-card">
+      <h2><span class="emoji">🍳</span>Cooking / Baking</h2>
+      <p>These hands-on activities provide structure, creativity, and sensory comfort. They also offer a sense of accomplishment and nourishment.</p>
+    </div>
+
+    <div class="hobby-card">
+      <h2><span class="emoji">🐶</span>Spending Time with Pets</h2>
+      <p>Pets offer companionship and unconditional love. Interacting with them increases oxytocin levels, reduces loneliness, and boosts emotional stability.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
